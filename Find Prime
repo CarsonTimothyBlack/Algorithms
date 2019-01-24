@@ -1,0 +1,17 @@
+RULE
+Create function that accepts argument and determines if number is Prime or not.
+
+SOLUTION
+
+function isPrime(n){        //function accepts n
+  var divisor = 2;          //creates a divisor
+
+  while (n > divisor){      //while n is greater than 2, run code
+    if(n % divisor == 0){   //if n divided by divisor gives 0 remainder, ie. anything that can be divided by more than itself and 1
+     return false;          //return false, or n is not prime
+    }
+    else                    //if n divided by divisor gives something other than 0 as remainder,
+      divisor++;            //then increase divisor (If number is prime, it will eventially not be greater than itself and thus return true)
+  }
+  return true;            //when n becomes not greater than divisor, return true, or n is Prime
+}
