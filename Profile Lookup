@@ -1,0 +1,53 @@
+DATA
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["JavaScript", "Gaming", "Foxes"]
+    }
+];
+
+
+RULES
+
+1. The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+
+2. If both are true, then return the "value" of that property.
+
+3. If prop does not correspond to any valid properties of a contact found to match name then return "No such property"
+
+4. If name does not correspond to any contacts then return "No such contact"
+
+
+SOLUTION
+
+function lookUpProfile(name, prop){
+    for(var i = 0; i < contacts.length; i++) {      //Iterate through contact array
+        if(name === contacts[i].firstName) {        //Rule 1 -- Check if contact is actual firstName
+            if(contacts[i][prop]) {                 //Rule 1 -- Check if given property is a property of that contact
+                return contacts[i][prop];           //Rule 2 -- Return value of given property
+            } else {
+                return "No such property";          //Rule 3 -- No prop found under contact
+            }
+        }
+    } return "No such contact";                     //Rule 4 -- given name does not correspond to any contacts
+}
