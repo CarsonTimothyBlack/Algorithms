@@ -1,0 +1,11 @@
+--PROBLEM--
+Make a program that filters out friends that have exactly 4 letter names.
+
+Anything else is a foe!
+
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+
+--SOLUTION--
+function friend(friends) {
+  return friends.filter(word => word.length == 4)
+}
