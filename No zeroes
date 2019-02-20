@@ -1,0 +1,27 @@
+--PROBLEM--
+Get rid of zeroes at end of numbers. So:
+
+1450 -> 145
+960000 -> 96
+1050 -> 105
+-1050 -> -105
+
+
+--MY SOLUTION--
+
+function number(num) {
+  var word = num.toString();
+  var amount = word.length;
+  if(amount == 1 && word.charAt(0) == "0") {
+    return num;
+  } else {
+    for(var i = 1; i < amount + 1; i++) {
+      var testChar = word.charAt(amount - i);
+      if( testChar !== "0") {
+        var solution = parseInt(word.slice(0, amount - i + 1));
+        return solution;
+      }
+    }
+  }
+}
+
