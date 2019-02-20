@@ -1,0 +1,20 @@
+--PROBLEM--
+Given a list of points for 10 football games in an array
+(Ex.[1:0, 2:0, 1:2, etc]),
+we need to give the team a certain amount of points, based on some rules:
+
+if x>y - 3 points
+if x<y - 0 point
+if x=y - 1 point
+
+--SOLUTION--
+function points(games) {
+  let score = 0;
+  for(var i = 0; i < games.length; i++) {
+    if(games[i][0] > games[i][2]) {
+      score += 3;
+    } else if(games[i][0] == games[i][2]) {
+      score += 1;
+    }
+  } return score;
+}
