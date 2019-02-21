@@ -11,7 +11,6 @@ For nCols = 16, nRows = 11, col = 5 and row = 3, the output should be 96.
 
 --SOLUTION--
 function seatsInTheater(nCols, nRows, col, row) {
-  var grid = nCols * nRows;
   var seat1 = nCols - col + 1;
   var seat2 = nRows - row;
   return seat1 * seat2;
