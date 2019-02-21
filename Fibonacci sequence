@@ -1,0 +1,13 @@
+--PROBLEM--
+Create a function that can find the number at a particular place in the fibonacci sequence.
+
+Ex. Place - 1, number = 1
+    Place - 3, number = 2
+
+--SOLUTION--
+function fib(n) {
+  if(n < 2) {
+    return n;
+  }
+    return fib(n - 1) + fib(n - 2);
+}
