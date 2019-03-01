@@ -1,0 +1,12 @@
+--PROBLEM--
+Test to see if an input is the same forwards as it is backwards.
+
+ex. "love" = "evol"? false
+    "mom" = "mom"? true
+
+--SOLUTION--
+function palindrome(str) {
+  let reverse = str.split("").reverse().join("");
+  let test = (reverse == str) ? true:false;
+  return test;
+}
