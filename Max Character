@@ -1,0 +1,19 @@
+--PROBLEM--
+Given a string, return the character that is used the most.
+
+--SOLUTION--
+function maxChar(str) {
+  let obj = {};
+  let max = 0;
+  let maxChar = '';
+  for(let char of str) {
+    !obj[char] ? obj[char] = 1 : obj[char] +=1;
+  }
+  for(let key in obj) {
+    if(obj[key] > max) {
+      max = obj[key];
+      maxChar = key;
+    }
+  }
+  return maxChar;
+}
