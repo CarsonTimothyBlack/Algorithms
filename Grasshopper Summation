@@ -1,0 +1,17 @@
+--PROBLEM--
+
+
+--SOLUTION--
+var summation = function (num) {
+  let arr = [];
+  for(var i = 0; i <= num; i++ ) {
+    arr.push(i);
+  }
+  let sum = arr.reduce((x, y)=> x + y);
+  return sum;
+}
+
+----FUN FACT SOLUTION
+function summation(num) {              //Sum will always equal the number * (number + 1)/2
+  return num * (num + 1) / 2
+}
