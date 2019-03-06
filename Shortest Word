@@ -1,0 +1,38 @@
+--PROBLEM--
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+
+
+--SOLUTION--
+function findShort(s){
+  s += " ";
+  let y = [];
+  for(var i = 0; i < s.length; i++) {
+    if(s.charAt(i) == " ") {
+      y.push(i);
+    }
+  } let min = y[0];
+  for(var i = 0; i < y.length; i++) {
+    let max = y[i + 1] - y[i] - 1;
+    if(max < min) {
+      min = max;
+    }
+  }
+  return min;
+}
+
+
+OR
+
+function findShort(s){
+  var arr = s.split(' ');
+  var smallest = arr[0];
+  for (let value of arr) {
+    if(value.length < smallest.length){
+      smallest = value.length;
+    }
+  }
+  return smallest.length;
+}
+
