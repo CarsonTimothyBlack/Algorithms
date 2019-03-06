@@ -1,0 +1,29 @@
+--PROBLEM--
+// Given an array and chunk size, divide the array into many subarrays
+// where each subarray is of length size
+
+
+--SOLUTION--
+function chunk(array, size) {
+  let chunked = [];
+  for(let value of array) {
+    let last = chunked[chunked.length - 1];
+    if(!last || last.length == size) {
+      chunked.push([value]);
+    } else {
+      last.push(value);
+    }
+  } return chunked;
+}
+
+OR
+
+function chunk(array, size) {
+  let chunked = [];
+  let index = 0;
+  while(index < array.length) {
+    chunked.push(array.slice(index, (index + size)));
+    index += size;
+  }
+  return chunked;
+}
