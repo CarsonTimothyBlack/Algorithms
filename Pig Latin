@@ -1,0 +1,25 @@
+--PROBLEM--
+Translate the provided string to pig latin.
+
+Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
+
+If a word begins with a vowel you just add "way" to the end.
+
+Input strings are guaranteed to be English words in all lowercase.
+
+Should also handle words that have no vowels. ex. "bllllg" should be "bllllgay".
+
+--SOLUTION--
+function translatePigLatin(str) {
+  let newStr = '';
+  if(/[a,e,i,o,u]/.test(str[0])) {
+    newStr = str + "way";
+  } else if(!/[a,e,i,o,u]/.test(str)) {
+    newStr = str + "ay";
+  } else {
+    let firstVowel = str.match(/[a,e,i,o,u]/);
+    let index = str.indexOf(firstVowel);
+    newStr =  str.slice(index) + str.slice(0, index) + "ay";
+  }
+  return newStr;
+}
