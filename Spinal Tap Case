@@ -1,0 +1,21 @@
+--PROBLEM--
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+ex. "This Is Spinal Tap", would be "this-is-spinal-tap".
+
+--SOLUTION--
+function spinalCase(str) {
+  let newStr = str[0].toLowerCase();
+  for(let i = 1; i < str.length; i++) {
+    if(/[a-z]/.test(str[i])) {
+      newStr += str[i];
+    } else if(!/[a-zA-Z]/.test(str[i])) {
+      newStr += "-";
+    } else if(/[A-Z]/.test(str[i]) && /[a-zA-Z]/.test(str[i - 1])) {
+      newStr += "-" + str[i].toLowerCase();
+    } else {
+      newStr += str[i].toLowerCase();
+    }
+  }
+  return newStr;
+}
