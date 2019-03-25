@@ -1,0 +1,62 @@
+--PROBLEM--
+Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+
+
+--SOLUTION--
+function smallestCommons(arr) {
+  arr.sort((a,b) => a - b);
+  let multArr = [];
+  let result = 2;
+  for(let i = arr[0]; i <= arr[1]; i++) {
+    multArr.push(i);
+  }
+  function checkDiv(x) {
+    return result % x == 0;
+  }
+  while(!multArr.every(checkDiv)) {
+    result++;
+  }
+  return result;
+}
+
+//It was not passing freeCodeCamp final test for smallestCommons(23,18), but I was getting correct result on my own console. May be a bug.
+
+--OTHER--
+
+function smallestCommons(arr) {
+  arr.sort(function(a, b) {
+    return b - a;
+  });
+
+  // Create new array and add all values from greater to smaller from the
+  // original array.
+  var newArr = [];
+  for (var i = arr[0]; i >= arr[1]; i--) {
+    newArr.push(i);
+  }
+
+  // Variables needed declared outside the loops.
+  var quot = 0;
+  var loop = 1;
+  var n;
+
+  // Run code while n is not the same as the array length.
+  do {
+    quot = newArr[0] * loop * newArr[1];
+    for (n = 2; n < newArr.length; n++) {
+      if (quot % newArr[n] !== 0) {
+        break;
+      }
+    }
+
+    loop++;
+  } while (n !== newArr.length);
+
+  return quot;
+}
+
+//This one was passing the test
