@@ -18,3 +18,18 @@ function palindrome(str) {
     return char === str[str.length - i - 1];
   });
 }
+
+--freeCodeCamp version, which wants all non alphanumerical characters removed before checking--
+function palindrome(str) {
+  let arr = str.split('');
+  let newArr = [];
+  for(let char of arr) {
+    if(/[a-zA-Z0-9]/.test(char)) {
+      newArr.push(char.toLowerCase());
+    }
+  }
+  let arrRev = newArr.slice(0).reverse();
+  let x = newArr.join('');
+  let y = arrRev.join('');
+  return x == y;
+}
