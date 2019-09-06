@@ -1,0 +1,22 @@
+--PROBLEM--
+Given a number, n, and an array of sock colors (as numbers), return how many pairs of matching colors there are.
+Example: (8,[3,4,3,4,5,4,3]) would return 2, as there are at least 1 pair of matching 3s and 1 pair of matching 4s, leaving 3 unmatching socks left.
+
+
+--SOLUTION--
+function sockMerchant(n, ar) {
+    let socks = {};
+    let counter = 0;
+    for (var i of ar) { 
+        if (socks[i]) {
+            socks[i]++;
+        } else { 
+            socks[i] = 1;
+        }
+    }
+    for (var x in socks) { 
+        counter += Math.floor(socks[x]/2);
+    }
+    return counter;
+
+}
