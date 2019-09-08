@@ -1,0 +1,20 @@
+--PROBLEM--
+Given an array of 0s and 1s. Find the shortest path to the end. You must avoid 1s. You may jump either one or two spaces forward,
+as long as you don't land on a 1.
+
+Example: [0,0,0,0,1,0,0,1,0] = You can either take 6 steps to pass or 5 (The first jump being two spaces). Your code should output 5.
+
+--SOLUTION--
+function jumpingOnClouds(c) {
+    var counter = 0;
+    for (var i = 0; i < c.length; i++) { 
+        if (c[i + 2] == 0) {
+            counter++;
+            i++;
+        } else { 
+            counter++;
+        }
+    }
+    counter--;
+    return counter;
+}
