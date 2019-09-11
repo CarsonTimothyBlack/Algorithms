@@ -1,0 +1,36 @@
+--PROBLEM--
+Given an array of numbers that form a square grid, calculate the absolute difference between the two diagonals.
+
+--SOLUTION--
+function diagonalDifference(arr) {
+    let leftD = 0;
+    let rightD = 0;
+    let counter = 0;
+    let row = 1;
+    let col = 1;
+    let grid = Math.sqrt(arr.length);
+    while (row <= grid) {
+        col = 1;
+        while (col <= grid) { 
+            if (col == Math.ceil(grid / 2) && row == Math.ceil(grid / 2)) {
+                leftD += arr[counter];
+                rightD += arr[counter];
+                col++;
+                counter++;
+            } else if (col == row * 1) {
+                leftD += arr[counter];
+                col++;
+                counter++;
+            } else if (col == grid - row + 1) {
+                rightD += arr[counter];
+                col++;
+                counter++;
+            } else { 
+                col++;
+                counter++;
+            }
+        } 
+        row++;
+    }
+    return Math.abs(leftD - rightD);
+}
